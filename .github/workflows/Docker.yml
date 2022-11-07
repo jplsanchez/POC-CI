@@ -29,8 +29,8 @@ jobs:
     - name: Build and push Docker images5
       uses: docker/build-push-action@v3.2.0
       with:
-        context: ./WeatherForecast
-        file: ./Dockerfile
+        context: .
+        file: ./WeatherForecast/Dockerfile
         push: true
         tags: jplsanchez/weather_forecast_ci:${{ github.ref_name }}
 
