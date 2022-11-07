@@ -15,7 +15,7 @@ jobs:
       uses: actions/download-artifact@v3.0.1
       with:
         name: weather_forecast_artifact
-        #path: # optional
+        path: .
     
     - name: Docker Setup Buildx
       uses: docker/setup-buildx-action@v2.2.1
