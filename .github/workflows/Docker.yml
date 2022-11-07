@@ -11,10 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v3.0.1
-      with:
-        name: weather_forecast_artifact
+#    - name: Download a Build Artifact
+#      uses: actions/download-artifact@v3.0.1
+#      with:
+#        name: weather_forecast_artifact
         #path: # optional
     
     - name: Docker Setup Buildx
