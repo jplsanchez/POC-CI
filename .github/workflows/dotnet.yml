@@ -24,7 +24,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish WeatherForecast/WeatherForecast.csproj --no-restore --no-build -c Release 
+      run: dotnet publish WeatherForecast/WeatherForecast.csproj -c Release 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
