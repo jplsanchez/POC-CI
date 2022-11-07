@@ -11,12 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    
-    strategy:
-      matrix:
-        os: ['ubuntu-latest', 'ubuntu-18.04']
-
+    runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -26,13 +21,22 @@ jobs:
         
     - name: Restore dependencies
       run: dotnet restore
-      
     - name: Build
       run: dotnet build --no-restore
-      
+    - name: Publish
+      run: dotnet publish WeatherForecast/WeatherForecast.csproj --no-restore --no-build -c Release 
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: weather_forecast_artifact
+        path: /home/runner/work/WeatherForecast/WeatherForecast
+
   test:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'ubuntu-18.04']
     
     steps:
     - uses: actions/checkout@v3
