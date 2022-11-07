@@ -4,5 +4,5 @@ EXPOSE 80
 EXPOSE 443
 
 WORKDIR /app
-COPY . .
+COPY ./app/publish .
 ENTRYPOINT ["dotnet", "WeatherForecast.dll"]
